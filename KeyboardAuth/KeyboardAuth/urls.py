@@ -29,7 +29,7 @@ urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/', include('rest_framework.urls')),
-    path('api/traning_data/custom/', keys_training.CustomeKeyTraining.as_view(), name='custom_function'),
+    path('api/traning_data_custom', keys_training.CustomeKeyTraining.as_view(), name='custom_function'),
 
     
 ]

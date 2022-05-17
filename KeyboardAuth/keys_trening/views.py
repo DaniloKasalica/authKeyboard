@@ -27,27 +27,20 @@ class KeyTrainingViewSet(viewsets.ModelViewSet):
         return Response(serializer.data, status=status.HTTP_201_CREATED, headers=headers)
 
 class CustomeKeyTraining(APIView):
+    authentication_classes = []
+    permission_classes = []
+
+    def get(self, request, format=None):
+        """
+
+    OVDJE PROSTOR DA RADIS NESTO SA PODACIMA KOJI SU POSLATI
+    DOLJE JE PRIMJER KREIRANJA REDA
+        """
+        message = ['']
+        return Response(message)
     def post(self,request): #POST/GET/PUT
 
-        payload = request.data #POSLATI PODACI 
-
-       
-    #OVDJE PROSTOR DA RADIS NESTO SA PODACIMA KOJI SU POSLATI
-    #DOLJE JE PRIMJER KREIRANJA REDA
-      
-        for new_item in payload:
-            item_obj = {
-            }
-            
-
-            serializer = KeyTrainingSerializer(data=item_obj) 
-
-            if not serializer.is_valid(raise_exception=True):
-                
-                return Response(
-                    {"success": False, "message": "Error while trying to create key.", "data": None})
-
-            serializer.save()
+    
       
 
         return Response({"message": "Successfully created keys.", "success": True})
