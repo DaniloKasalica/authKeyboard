@@ -16,7 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from keys_trening import views as keys_training
-from rest_framework_simplejwt import views as jwt_views
 from django.urls import include, path
 from rest_framework import routers
 from django.conf import settings
@@ -24,20 +23,13 @@ from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 
-router.register('keys_training', keys_training.KeyTrainingViewSet, basename='keys_training')
-router.register('keys_pair_training', keys_training.KeyPairsTrainingViewSet, basename='keys_pair_training')
+router.register('training_data', keys_training.KeyTrainingViewSet, basename='keys_training')
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/', include('rest_framework.urls')),
-
-    # ---- JWT AUTHORIZATION START ----
-    path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-    # ---- AUTHORIZATION END ----
-    path('api/key_training/new/', keys_training.CreateKeyTraining.as_view(), name='new_client'),
-    path('api/key_pairs_training/new/', keys_training.CreatePairsKeyTraining.as_view(), name='new_client'),
+    path('api/traning_data/custom/', keys_training.CustomeKeyTraining.as_view(), name='custom_function'),
 
     
 ]
