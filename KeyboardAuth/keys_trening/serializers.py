@@ -1,10 +1,10 @@
-from .models import  KeyTraining
+from .models import  TrainingData
 from rest_framework import serializers
 
 
-class KeyTrainingSerializer(serializers.ModelSerializer):
+class TrainingDataSerializer(serializers.ModelSerializer):
 
     class Meta:
-        model = KeyTraining
+        model = TrainingData
         fields = '__all__'
    

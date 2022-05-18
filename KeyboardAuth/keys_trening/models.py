@@ -1,9 +1,9 @@
 from django.db import models
 
-class KeyTraining(models.Model):
+class TrainingData(models.Model):
 
     class Meta:
-        db_table = 'key_pairs_trining'
+        db_table = 'training_data'
 
     username= models.CharField( blank=False, null=False,max_length=16)
         

@@ -1,4 +1,4 @@
 from django.contrib import admin
-from .models import KeyTraining
+from .models import TrainingData
 
-admin.site.register(KeyTraining)
+admin.site.register(TrainingData)

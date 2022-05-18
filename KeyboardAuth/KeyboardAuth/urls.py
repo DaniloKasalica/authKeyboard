@@ -23,13 +23,13 @@ from django.conf.urls.static import static
 
 router = routers.DefaultRouter()
 
-router.register('training_data', keys_training.KeyTrainingViewSet, basename='keys_training')
+router.register('training_data', keys_training.TrainingDataViewSet, basename='training_data')
 
 urlpatterns = [
     path('api/admin/', admin.site.urls),
     path('api/', include(router.urls)),
     path('api/', include('rest_framework.urls')),
-    path('api/traning_data_custom', keys_training.CustomeKeyTraining.as_view(), name='custom_function'),
+    path('api/auth_data', keys_training.AuthData.as_view(), name='auth_data'),
 
     
 ]
